@@ -24,7 +24,7 @@ interest to meiosis research and is key to capturing molecular targets in clinic
 applications. When a system is stressed, the epigenetic environment undergoes 
 significant changes in response as gene expression requirements are shifted ([Gudsnuk 
 & Champagne, 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4021821/)). [Sun, 
-Sherrin, & Roy, 2023](https://academic.oup.com/nar/article/51/1/84/68876020)found 
+Sherrin, & Roy, 2023](https://academic.oup.com/nar/article/51/1/84/68876020) found 
 that under starvation conditions, H3K4me3 marks are significantly elevated in 
 *Caenorhabditis elegans* meiotic nuclei at open promoters in accompaniment with 
 aberrant R-loops when the AMP kinase is absent. They propose that R-loops accumulate 
@@ -55,20 +55,19 @@ H3K4me3**
 ![Figure 3: R-loop formation correlates with ectopic deposition of 
 H3K4me3](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/nar/51/1/10.1093_nar_gkac1155/2/m_gkac1155fig3.jpeg?Expires=1678997233&Signature=q8YRcMZ3FPyio7jb06-5rSE3nRYj0DYF3ARHtCdA5AkRkfgt0O7VR7C~9suLERQqxDWD8tbsaN0AdLAoiCoBHSWtlZ1D2u-JBlyG712Br9Uc~lTN26ZCww-c8UBNWoYGtySP31RjdPAjrkTKEyCndlA9Qkvqob2FZ7JKMd8DXbyVPlr3UPeSAfqvRQ1hGBzmcvxmut4oP5eGCJCA7M-A1OKGQdJn-p9PUyaVc2MzO12A7bxvSeajJNR~kPS3PqFSMJ-715YBHw2fe67ZOnCZ1Yu3iKcnKjy3NEQ8phFO-p1dot~0Z9083SNL6NgfAyBBNlmwDp-tTfULg1CPgEDMGw__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
 
-> **Legend** (A) Genome browser snapshots of DRIP-seq signals at regions proximal to 
-genes and 
-RNH tracks. Green bars show R-loop peak calls. Track height represents read counts. 
+> **Legend from [Sun, Sherrin, and Roy, 2023](https://www.sciencedirect.com/science/article/pii/S2211124721015916)** (A) Genome browser snapshots of DRIP-seq signals at regions proximal to 
+genes and RNH tracks. Green bars show R-loop peak calls. Track height represents read counts. 
 (B) Overall comparison of DRIP-seq output (peak score and number) in WT versus 
-aak-1/2 genome. (C) DRIP-qPCR validation. WT or F2 descendants of starved aak-1/2 
+*aak-1/2* genome. (C) DRIP-qPCR validation. WT or F2 descendants of starved *aak-1/2* 
 mutants cultured with or without DRB treatment during starvation for 3 days were 
-collected for DRIP. tig-3 was selected as a negative control; n = 3, mean ± S.E.M. 
+collected for DRIP. *tig-3* was selected as a negative control; n = 3, mean ± S.E.M. 
 Signal values normalized with respect to input genomic DNA are plotted. *P< 0.05, 
 **P< 0.01, ***P < 0.001 by Mann–Whitney U-test. (D) Metaplot of GC skew centered on 
-all R-loop peaks. (E) Four enriched de novo motifs identified by HOMER analysis of 
+all R-loop peaks. (E) Four enriched *de novo* motifs identified by HOMER analysis of 
 AMPK mutant versus WT DRIP-seq. (F) Upper: annotation and peak location analyses for 
 called R-loop peaks mapping to promoter–TSS, TTS, exon, intron and the other regions. 
 Genomic peak proportion in per thousand is shown. Peaks accumulate predominantly at 
-the promoter–TSS fraction in aak-1/2 mutants. Lower: pie charts of DRIP-seq signal 
+the promoter–TSS fraction in *aak-1/2* mutants. Lower: pie charts of DRIP-seq signal 
 distribution for genic versus intergenic regions in WT or F2 descendants of starved 
 aak-1/2 mutants. (G) Genome browser snapshots showing a representative sample of 
 positively correlated R-loop signals and H3K4me3 levels in the F2 descendants of 
@@ -89,7 +88,7 @@ showing the overlap of reads from their DRIP-seq experiments at these representa
 genes with those of a similar experiment performed in which they immunoprecipitated 
 and sequenced H3K4me3 (S9.6 is an antibody against R-loops). 
 
-**Example Heat Map from [StackOverflow](https://i.stack.imgur.com/EpF3I.png)
+**Example Heat Map from [StackOverflow](https://i.stack.imgur.com/EpF3I.png)**
 ![Example Heat Map](https://i.stack.imgur.com/EpF3I.png)
 
 > Representative image of expected final project output; note that *C. elegans* have only five autosomes and one X chromosome to plot, contrary to what is pictured. Legend would reflect thousands of 
