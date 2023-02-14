@@ -1,5 +1,5 @@
-# **AMPK counteracts anomalous R-loops at open promoters in starved *C. elegans* 
-germlines**
+# AMPK counteracts anomalous R-loops at open promoters in starved C. elegans 
+germlines
 
 ## Reference
 Sun, B., Sherrin, M., Roy, R., 2023. Unscheduled epigenetic modifications cause 
@@ -13,8 +13,8 @@ epigenetic modifications associated with transcriptional processes is essential 
 proper chromosome segregation during meiotic divisions. While DNA double strand 
 breaks (DSBs) are abundant and, contrarily to cycling nuclei, systematically 
 required in meiotic nuclei, their formation is a tightly-regulated and programmed 
-process. DSB formation favors open chromatin [Price & Andrea, 
-2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3670600/) and unscheduled 
+process. DSB formation favors open chromatin([Price & Andrea, 
+2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3670600/)) and unscheduled 
 euchromatic regions can therefore poteniate unprogrammed DSBs in turn. In meiotic 
 nuclei, failure to repair aberrant DSBs is a significant threat to gamete genome 
 integrity and defects can manifest transgenerationally or lead to 
@@ -22,17 +22,17 @@ reproductive sterility as a result. Therefore, understanding the nuclear chromat
 environment and the regulatory network surrounding chromatin dynamics is of major 
 interest to meiosis research and is key to capturing molecular targets in clinical 
 applications. When a system is stressed, the epigenetic environment undergoes 
-significant changes in response as gene expression requirements are shifted [Gudsnuk 
-& Champagne, 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4021821/).[Sun, 
-Sherrin, & Roy, 2023](https://academic.oup.com/nar/article/51/1/84/68876020) found 
+significant changes in response as gene expression requirements are shifted ([Gudsnuk 
+& Champagne, 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4021821/)). [Sun, 
+Sherrin, & Roy, 2023](https://academic.oup.com/nar/article/51/1/84/68876020)found 
 that under starvation conditions, H3K4me3 marks are significantly elevated in 
 *Caenorhabditis elegans* meiotic nuclei at open promoters in accompaniment with 
 aberrant R-loops when the AMP kinase is absent. They propose that R-loops accumulate 
 as the result of hyperactive transcription during starvation and then hijack key 
 repair proteins from programmed DSB sites, leading to aberrant repair and 
-transgenerational sterility. However, studies performed in yeast models [Yang et. al, 
-2022](https://www.sciencedirect.com/science/article/pii/S2211124721015916) suggest 
-that R-loops may actually drive DSB repair in meiosis under wild-type conditions. 
+transgenerational sterility. However, studies performed in yeast models ([Yang et. 
+al, 2022](https://www.sciencedirect.com/science/article/pii/S2211124721015916)) 
+suggest that R-loops may actually drive DSB repair in meiosis under wild-type conditions. 
 While a field consensus on R-loops' full contribution to the regulation of meiosis 
 has not yet been reached, it is clear that they are associated with meiotic DSBs in 
 some capacity, and therefore may aid in the identification of DSB hotspots. My aim is 
@@ -43,15 +43,15 @@ effort to identify candidate hotspot regions.
 ## Expected Figure
 
 The expected figure would portray information from [Sun, Sherrin, & Roy, 
-2023](https://www.sciencedirect.com/science/article/pii/S2211124721015916)(Figure 3). 
-A major motivation for this project however is that the authors were interrogating 
+2023](https://www.sciencedirect.com/science/article/pii/S2211124721015916) (Figure 
+3). A major motivation for this project however is that the authors were interrogating 
 the contribution of H3K4me3 to the chromatin landscape and found that they had accrued R-loops, but 
 only focused on sites that overlapped with sites that also had H3K4me3. My interest 
 lies more in the effects of the R-loops themselves, and I am therefore aiming to 
 generate a figure that reflects *all* of their reads (as in example heat map below). 
 
 ![Figure 3: R-loop formation correlates with ectopic deposition of 
-H3K4me3](gkac1155fig3.jpg)
+H3K4me3](~/Documents/Grad_school_classes/ISC/Final_project/biol-4386-course-project-tarahicks/Data/gkac1155fig3.jpg)
 
 > **Legend** (A) Genome browser snapshots of DRIP-seq signals at regions proximal to 
 genes and 
@@ -87,7 +87,8 @@ showing the overlap of reads from their DRIP-seq experiments at these representa
 genes with those of a similar experiment performed in which they immunoprecipitated 
 and sequenced H3K4me3 (S9.6 is an antibody against R-loops). 
 
-![Example Heat Map](EPF3I.jpg)
+![Example Heat 
+Map](~/Documents/Grad_school_classes/ISC/Final_project/biol-4386-course-project-tarahicks/Data/EPF3I.jpg)
 
 > Representative image of expected final project output
 
