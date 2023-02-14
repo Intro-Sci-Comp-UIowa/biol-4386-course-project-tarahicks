@@ -1,5 +1,4 @@
-# AMPK counteracts anomalous R-loops at open promoters in starved C. elegans 
-germlines
+# AMPK counteracts anomalous R-loops at open promoters in starved C. elegans germlines
 
 ## Reference
 Sun, B., Sherrin, M., Roy, R., 2023. Unscheduled epigenetic modifications cause 
