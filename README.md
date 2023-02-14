@@ -51,7 +51,7 @@ lies more in the effects of the R-loops themselves, and I am therefore aiming to
 generate a figure that reflects *all* of their reads (as in example heat map below). 
 
 ![Figure 3: R-loop formation correlates with ectopic deposition of 
-H3K4me3](biol-4386-course-project-tarahicks/Data/gkac1155fig3.jpg)
+H3K4me3](/Users/tarahicks/Documents/Grad_school_classes/ISC/Final_project/biol-4386-course-project-tarahicks/Data/gkac1155fig3.jpg)
 
 > **Legend** (A) Genome browser snapshots of DRIP-seq signals at regions proximal to 
 genes and 
@@ -87,7 +87,7 @@ showing the overlap of reads from their DRIP-seq experiments at these representa
 genes with those of a similar experiment performed in which they immunoprecipitated 
 and sequenced H3K4me3 (S9.6 is an antibody against R-loops). 
 
-![Example Heat Map](biol-4386-course-project-tarahicks/Data/EPF3I.jpg)
+![Example Heat Map](/Users/tarahicks/Documents/Grad_school_classes/ISC/Final_project/biol-4386-course-project-tarahicks/Data/EpF3I.jpg)
 
 > Representative image of expected final project output
 
