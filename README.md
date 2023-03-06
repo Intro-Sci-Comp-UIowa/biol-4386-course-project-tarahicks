@@ -51,6 +51,7 @@ generate a figure that reflects *all* of their reads (as in example heat map bel
 
 **Figure 3: R-loop formation correlates with ectopic deposition of
 H3K4me3**
+
 ![Figure 3: R-loop formation correlates with ectopic deposition of 
 H3K4me3](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/nar/51/1/10.1093_nar_gkac1155/2/m_gkac1155fig3.jpeg?Expires=1678997233&Signature=q8YRcMZ3FPyio7jb06-5rSE3nRYj0DYF3ARHtCdA5AkRkfgt0O7VR7C~9suLERQqxDWD8tbsaN0AdLAoiCoBHSWtlZ1D2u-JBlyG712Br9Uc~lTN26ZCww-c8UBNWoYGtySP31RjdPAjrkTKEyCndlA9Qkvqob2FZ7JKMd8DXbyVPlr3UPeSAfqvRQ1hGBzmcvxmut4oP5eGCJCA7M-A1OKGQdJn-p9PUyaVc2MzO12A7bxvSeajJNR~kPS3PqFSMJ-715YBHw2fe67ZOnCZ1Yu3iKcnKjy3NEQ8phFO-p1dot~0Z9083SNL6NgfAyBBNlmwDp-tTfULg1CPgEDMGw__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
 
@@ -88,6 +89,7 @@ genes with those of a similar experiment performed in which they immunoprecipita
 and sequenced H3K4me3 (S9.6 is an antibody against R-loops). 
 
 **Example Heat Map from [StackOverflow](https://i.stack.imgur.com/EpF3I.png)**
+
 ![Example Heat Map](https://i.stack.imgur.com/EpF3I.png)
 
 > Representative image of expected final project output; note that *C. elegans* have only five autosomes and one X chromosome to plot, contrary to what is pictured. Legend would reflect thousands of 
