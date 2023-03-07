@@ -107,6 +107,53 @@ as the total input DNA from both backgrounds. From here, I need to graph the fig
 in R by chromosome, however given I have never used R before, I imagine this will be 
 more of an undertaking than it sounds. 
 
+The example image I have provided from StackOverflow unfortunately comes 
+from a thread that does not provide the original citation for the image. 
+However, the thread is regarding the generation of a heat map by 
+chromosome in R, which is what I am trying to do with my dataset, and the 
+thread has some helpful suggestions StackOverflow thread
+The first suggestion is to use ggplot, which would generate a red, yellow, 
+and blue heat map oriented very similarly to the example image:
+
+> ‘ggplot(dt) + geom_rect(aes(xmin=chromosome - 0.3, xmax=chromosome + 
+0.3, ymin=mb_from, ymax=mb_to, fill=score)) + scale_y_reverse() + 
+scale_fill_distiller(palette=“RdYlBu”)’
+
+An alternative suggestion in this thread is to use the R package “plotly” 
+and would create a plot which places the chromosome number on the x-axis 
+and the chromosomal position on the y-axis (also very similar to the 
+example image, although this approach will make the graphical 
+representation messier as it does not include space between individual 
+chromosomes):
+
+> 'dat <- apply(dt, 1, function(x) data.table(chromosome = 
+x[“chromosome”], 
+mb = x[“mb_from”]:x[“mb_to”], score = x[“score”]) ) %>% rbindlist()
+plot_ly(dat, x = ~chromosome, y = ~mb, z = ~score, type = “heatmap”, 
+colors = “RdYlBu”, reversescale = T) %>% layout(yaxis = list(range = 
+c(1000, 0)))’
+
+Because I have heard of ggplot and am completely unfamiliar with R in 
+general, I feel more confident using the ggplot approach to start, however 
+should that fail, I will then revert to trying the plotly package or 
+exploring other avenues.
+
+## Reflections
+In reviewing the StackOverflow thread, I am concerned that I need to 
+rearrange my data formatting, however I’m not clear on the format that the 
+original poster used in their dataset that they are receiving these 
+suggestions for. My next step will be to determine what precisely their 
+data layout looks like (it is presented as R code and I just don’t get it 
+yet) and reformat my own data to match that. I know that the dataset I 
+have has all the information required, it is just a matter of reorganizing 
+column headers to fit the suggested scripts.
+I am also totally unsure why my first figure is coming out so small when 
+converted through pandoc for submission in the main README for the 
+project, but I have tried inserting more spaces around the image,
+using both a web-based link and a local image file, and using pandoc to 
+convert to .docx instead of .pdf and none of these attempts have resolved 
+the issue. For a full image size, please refer to this README file in my 
+GitHub repository.
 
  
 
