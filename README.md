@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # AMPK counteracts anomalous R-loops at open promoters in starved C. elegans germlines
 
 ## Reference
