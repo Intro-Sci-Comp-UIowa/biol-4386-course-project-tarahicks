@@ -43,7 +43,7 @@ effort to identify candidate hotspot regions using the wild-type data of [Sun, S
 **Figure 1: R-loop formation correlates with ectopic deposition of H3K4me3**
 
 
-![Figure 1: R-loop formation correlates with ectopic deposition of H3K4me3](/Users/tarahicks/ISC/Final_project/biol-4386-course-project-tarahicks/Data/Fig3A-DRIP_seq_peak_SSR2023.png)
+![Figure 1: R-loop formation correlates with ectopic deposition of H3K4me3](https://github.com/Intro-Sci-Comp-UIowa/biol-4386-course-project-tarahicks/blob/main/Data/Fig3A-DRIP_seq_peak_SSR2023.png)
 
 
 > **Legend from [Sun, Sherrin, and Roy, 2023](https://www.sciencedirect.com/science/article/pii/S2211124721015916)** (A) Genome browser snapshots of DRIP-seq signals at regions proximal to 
@@ -89,7 +89,7 @@ By using the above described pipeline, figure 2 was generated.
 **Figure 2: Wild-type R-loop distribution along *C. elegans* chromosomes**
 
 
-![Figure 2: Wild-type R-loop distribution along C. elegans chromosomes](/Users/tarahicks/ISC/Final_project/biol-4386-course-project-tarahicks/Output/DRIP_Seq_chr_map-wt-5.4.2023.pdf)
+![Figure 2: Wild-type R-loop distribution along C. elegans chromosomes](https://github.com/Intro-Sci-Comp-UIowa/biol-4386-course-project-tarahicks/blob/main/Output/DRIP_Seq_chr_map-wt-5.4.2023.pdf)
 
 While it is not precisely the anticipated product, the x and y-axes do reflect the desired outcome and reads are mapping along the chromosomes with color coding which is informative. Unsurprisingly, many of the reads map to the more central region of chromosome V. Because *C. elegans* are holocentric, their chromosomes do not exhibit the same aversion for the central region of the chromosomes that species with centromeres do. Indeed, worm chromosomes have a well-documented bias for gene density in the central region of the chromosome rather than the arms. Given R-loops' association with transcription and an increased gene density at chromosome V in general, this result aligns with expectations. What is surprising about this figure however is the enrichment of R-loops on the X-chromosome, as worms reduce transcription from the X chromosome to half. However, because the worms in this study were starved, there is a chance that this accumulation is due to a stress response or because starvation can initiate chromosome nondisjunction which results in XO males and could contribute to the signal. 
 
