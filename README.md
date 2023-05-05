@@ -36,23 +36,14 @@ While a field consensus on R-loops' full contribution to the regulation of meios
 has not yet been reached, it is clear that they are associated with meiotic DSBs in 
 some capacity, and therefore may aid in the identification of DSB hotspots. My aim is 
 thus to compile a picture of where R-loop reads map on the whole-genome scale in an 
-effort to identify candidate hotspot regions.   
+effort to identify candidate hotspot regions using the wild-type data of [Sun, Sherrin, & Roy, 
+2023](https://www.sciencedirect.com/science/article/pii/S2211124721015916), as is represented in Figure 1 below.
 
 
-## Expected Figure
-
-The expected figure would portray information from [Sun, Sherrin, & Roy, 
-2023](https://www.sciencedirect.com/science/article/pii/S2211124721015916) (Figure 
-3). A major motivation for this project however is that the authors were interrogating 
-the contribution of H3K4me3 to the chromatin landscape and found that they had accrued R-loops, but 
-only focused on sites that overlapped with sites that also had H3K4me3. My interest 
-lies more in the effects of the R-loops themselves, and I am therefore aiming to 
-generate a figure that reflects *all* of their reads (as in example heat map below). 
-
-**Figure 3: R-loop formation correlates with ectopic deposition of H3K4me3**
+**Figure 1: R-loop formation correlates with ectopic deposition of H3K4me3**
 
 
-![Figure 3: R-loop formation correlates with ectopic deposition of H3K4me3](/Users/tarahicks/Documents/Grad_school_classes/ISC/Final_project/biol-4386-course-project-tarahicks/gkac1155fig3.jpg)
+![Figure 1: R-loop formation correlates with ectopic deposition of H3K4me3](/Users/tarahicks/ISC/Final_project/biol-4386-course-project-tarahicks/Data/Fig3A-DRIP_seq_peak_SSR2023.png)
 
 
 > **Legend from [Sun, Sherrin, and Roy, 2023](https://www.sciencedirect.com/science/article/pii/S2211124721015916)** (A) Genome browser snapshots of DRIP-seq signals at regions proximal to 
@@ -77,83 +68,45 @@ This figure is showing the results of the authors' DNA-RNA immunprecipitation
 followed by high throughput sequencing (DRIP-Seq) experiments. This method captures 
 R-loops by antibody immunoprecipitation and the immunoprecipitated products are then 
 sequenced to identify regions of the genome at which R-loops were associated in the 
-sample. In panel A, a genome browser snapshot is showing some example genes where 
-reads aligned and is validating that the signal is truly from R-loops (RNaseH is an 
-enzyme that removes R-loops, see control). Panel B is comparing the number of peak 
-reads which came from AMPK mutants (*aak-1/2*) as compared to wild type (WT). Panel C 
-also uses the DRIP technique, however instead of sequencing the immunoprecipitate, a 
-quantitative PCR was run for the same representative genes as shown in panel A. 
-Panels D-F represent R-loop enrichment at various sequence features. Panel G is 
-showing the overlap of reads from their DRIP-seq experiments at these representative 
-genes with those of a similar experiment performed in which they immunoprecipitated 
-and sequenced H3K4me3 (S9.6 is an antibody against R-loops). 
+sample. While they only show information at loci whose gene ontology matched that of their point of interest (I.e. chromatin modulation in starvation), they provide fair quality deep sequencing data (>90% of reads map to *C. elegans* genome) which can be used to extrapolate further genomic information regarding the role of R-loops in *C. elegans* gene regulation. 
 
-**Example Heat Map from [StackOverflow](https://i.stack.imgur.com/EpF3I.png)**
-
-![Example Heat Map](https://i.stack.imgur.com/EpF3I.png)
-
-> Representative image of expected final project output; note that *C. elegans* have only five autosomes and one X chromosome to plot, contrary to what is pictured. Legend would reflect thousands of 
-reads.
 
 ## Materials and Methods
 
-The authors made their sequencing data publicly-available in a repository with NCBI. 
-I have already downloaded these reads and the Bioinformatics core at IIHG recently provided 
-an Excel spreadsheet to me with the processed reads. Further, my undergraduate 
-research assistant just finished annotating this file. At this time, I have the data 
-available to me with genomic coordinates and the number of reads which mapped to each 
-coordinate from both the authors' AMPK mutants and their wild-type samples, as well 
-as the total input DNA from both backgrounds. From here, I need to graph the figure 
-in R by chromosome, however given I have never used R before, I imagine this will be 
-more of an undertaking than it sounds. 
+The authors made their paired-end sequencing data publicly-available in a repository with NCBI [PRJNA721008] (https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&from_uid=721008). These can also be found in the GitHub repository associated with this report. 
+Raw sequencing data was processed by the Bioinformatics team at the IIHG core here at the University of Iowa. The data was provided in xls as the number of reads which mapped to a particular chromosome loci, with chromosome number and genomic position annotated via alignment with the *Caenorhabditis_elegans* assembly WBcel235 reference genome. 
 
-The example image I have provided from StackOverflow unfortunately comes 
-from a thread that does not provide the original citation for the image. 
-However, the thread is regarding the generation of a heat map by 
-chromosome in R, which is what I am trying to do with my dataset, and the 
-thread has some helpful suggestions StackOverflow thread
-The first suggestion is to use ggplot, which would generate a red, yellow, 
-and blue heat map oriented very similarly to the example image:
+To approach generating a heat map which represents a genomic snapshot of R-loop accumulation, this file was reorganized to match the necessary array structure for processing with R tools. An undergraduate assistant manually separated chromosome number from genomic position coordinates in the xls prior to integration into the RStudio platform. All downstream analysis was performed in RMarkdown within RStudio using code chunks to run code. .Rdata history is also available on GitHub. The xls was imported into the RStudio environment using the readxl package. Other packages that were required for this analysis include tidy, dplyr, and ggplot2. To arrange the data into a format that R could recognize and interpret, chromosome numbers were mutated such that numbers were transformed to a character variable so X chromosome and mitochondrial DNA reads could be incorporated into the representation using tidyr's data_clean function. Secondly, ranges in the original xls data file were provided as a "#..#" format. 
 
-> ‘ggplot(dt) + geom_rect(aes(xmin=chromosome - 0.3, xmax=chromosome + 
-0.3, ymin=mb_from, ymax=mb_to, fill=score)) + scale_y_reverse() + 
-scale_fill_distiller(palette=“RdYlBu”)’
+To parse the range into a tidier format, two separate columns for the start and end coordinates were generated using the ".." characters as a delimiter for the "separate" function. Data values in the column reflecting the raw number of reads associated with each row were converted to a numeric data type and were then calculated against the total number of reads to attain a percentage value for the number of reads at a particular location relative to the total input. 
 
-An alternative suggestion in this thread is to use the R package “plotly” 
-and would create a plot which places the chromosome number on the x-axis 
-and the chromosomal position on the y-axis (also very similar to the 
-example image, although this approach will make the graphical 
-representation messier as it does not include space between individual 
-chromosomes):
+Using ggplot2, the percentage of reads were then defined as the fill gradient with three colors for the low, midpoint, and high values respectively for the heat map. The x position was defined as the starting position and the y-axis was defined as the chromosome number (1-6, Mt for mitochondrial, and X) such that percentage of reads at particular loci would correlate based on their coordinates. The intended effect was a series of 7 rows correlating to the 7 possible chromosomes a read could be at and within those rows, colored bars which correlate to both the particular location along that chromosome and whose coloring would reflect the degree of enrichment among all genomic locations with peaks. This would theoretically provide a visual for any biases toward particular regions of the chromosomes (e.g. central or arm-biased). 
 
-> 'dat <- apply(dt, 1, function(x) data.table(chromosome = 
-x[“chromosome”], 
-mb = x[“mb_from”]:x[“mb_to”], score = x[“score”]) ) %>% rbindlist()
-plot_ly(dat, x = ~chromosome, y = ~mb, z = ~score, type = “heatmap”, 
-colors = “RdYlBu”, reversescale = T) %>% layout(yaxis = list(range = 
-c(1000, 0)))’
+## Results and Discussion
 
-Because I have heard of ggplot and am completely unfamiliar with R in 
-general, I feel more confident using the ggplot approach to start, however 
-should that fail, I will then revert to trying the plotly package or 
-exploring other avenues.
+By using the above described pipeline, figure 2 was generated. 
+
+**Figure 2: Wild-type R-loop distribution along *C. elegans* chromosomes**
+
+
+![Figure 2: Wild-type R-loop distribution along C. elegans chromosomes](/Users/tarahicks/ISC/Final_project/biol-4386-course-project-tarahicks/Output/DRIP_Seq_chr_map-wt-5.4.2023.pdf)
+
+While it is not precisely the anticipated product, the x and y-axes do reflect the desired outcome and reads are mapping along the chromosomes with color coding which is informative. Unsurprisingly, many of the reads map to the more central region of chromosome V. Because *C. elegans* are holocentric, their chromosomes do not exhibit the same aversion for the central region of the chromosomes that species with centromeres do. Indeed, worm chromosomes have a well-documented bias for gene density in the central region of the chromosome rather than the arms. Given R-loops' association with transcription and an increased gene density at chromosome V in general, this result aligns with expectations. What is surprising about this figure however is the enrichment of R-loops on the X-chromosome, as worms reduce transcription from the X chromosome to half. However, because the worms in this study were starved, there is a chance that this accumulation is due to a stress response or because starvation can initiate chromosome nondisjunction which results in XO males and could contribute to the signal. 
+
+Despite the enrichment at the central region of chromosome V, there is also a stark accumulation of reads at chromosome ends which, as previously mentioned, are not generally gene-rich regions in worm genomes. Exciting new studies in R-loop biology suggest that the long non-coding RNA TERRA upregulates R-loop formation even in the absence of active transcription and may use this mechanism to model telomere ends. Therefore, the accumulation of R-loops at chromosome ends in a wild type background may suggest that R-loops are a natural regulatory or structural component to t-loop formation, making them an indispensable contributor to genome stability as well as a major health threat by way of alternative lengthening of telomeres (ALT) and telomere immortality. 
+
+## Conclusions
+
+R-loops are often associated with transcription-replication conflicts which ultimately can result in DNA double strand breaks. However, R-loops are a particularly transient structure, and there is overwhelming evidence across taxa that the balance between too many and too few R-loops is key to proper gene expression, Ig class switching, mitochondrial DNA stability, and homology-driven recombination pathways. Their contributions to neurological disease, cancer, and aging have been well documented in cycling systems, however the roles they may play in the germline have been severely neglected in the field. Given their essential role in crossover assurance and DSB repair fate in both fission and budding yeast meiosis, it stood to reason that the same might be true in other organisms. Because *C. elegans* do not have any known DSB hotspots, the ability to study certain meiotic processes, like crossover interference and assurance, is limited. If R-loops constitute a regulatory facet behind meiotic DSBs, this may provide a unique avenue to identify hotspots which have eluded others. Given the association of R-loops from this sample set (figure 2) to gene-rich and telomeric regions of the genome, it is clear that regardless of whether this analysis actually provides an avenue to identify DSB hotspots, there is biological importance for R-loops in genome integrity and their contributions are likely to key cell biological processes. 
 
 ## Reflections
-In reviewing the StackOverflow thread, I am concerned that I need to 
-rearrange my data formatting, however I’m not clear on the format that the 
-original poster used in their dataset that they are receiving these 
-suggestions for. My next step will be to determine what precisely their 
-data layout looks like (it is presented as R code and I just don’t get it 
-yet) and reformat my own data to match that. I know that the dataset I 
-have has all the information required, it is just a matter of reorganizing 
-column headers to fit the suggested scripts.
-I am also totally unsure why my first figure is coming out so small when 
-converted through pandoc for submission in the main README for the 
-project, but I have tried inserting more spaces around the image,
-using both a web-based link and a local image file, and using pandoc to 
-convert to .docx instead of .pdf and none of these attempts have resolved 
-the issue. For a full image size, please refer to this README file in my 
-GitHub repository.
+
+When performing the analysis, I struggled most with the ggplot2 rendering and surprisingly, the knitr conversion to PDF in RStudio. I think with ggplot2, I needed to set bases between the percentages of reads, however most of the reads have fairly low percentages (~1-2%) and then there is one spot that represents 25% of the reads, and setting a scale became rather difficult to do. There are also numbers correlating to the read positions on the x-axis that I was unsuccessful in removing. However all that said, I was actually very excited to see the plot look somewhat like what I wanted and going through the troubleshooting process for it to get even what I got was a great learning experience. I have some notes for myself for next time, but I can finally say I did at least something in R!
+
+
+
+
+
 
  
 
