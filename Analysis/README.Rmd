@@ -1,8 +1,21 @@
-# This markdown file contains all script and annotations used for this project
+---
+title: "Analysis and annotation Rmd"
+last edit: 5.4.2023 TH
+output:
+  pdf_document: default
+  word_document: default
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# This Rmarkdown file contains all script and annotations used for this project, all work was performed in this Rmd file using code chunks
 
 ## Load required packages:
-```{r} 
-### Import Excel data
+
+```{r}
+### Import xls data
 install.packages("readxl")
 
 ### For creating heat map
@@ -22,11 +35,10 @@ library("ggplot2")
 
 library("dplyr")
 ```
-## Set working directory to the local repository and import Excel data:
-```{r}
-### Set the working directory to the local repository 
-setwd("~/Documents/ISC/Final_project/biol-4386-course-project-tarahicks/Data/")
 
+## Set working directory to the local repository and import Excel data:
+
+```{r}
 ### Get the current working directory
 current_dir <- getwd()
 
@@ -40,7 +52,9 @@ data <- read_excel("DRIP_seq_data_IIHG-tidied-2.28.2023-Sherrin.xlsx")
 head(data)
 
 ```
+
 ## Clean up "Chromosome" column so R can recognize mitochondrial DNA and X chromosome:
+
 ```{r}
 data_clean <- data %>%
   mutate(., Chromosome = case_when(
@@ -51,24 +65,28 @@ data_clean <- data %>%
 ```
 
 ## Convert "Range_of_position" column into two separate columns for the start and end position:
+
 ```{r}
 data_clean <- data_clean %>%
-  separate(Range_of_position, into = c("start_pos", "end_pos"), sep = "\\.\\.")
+  separate( Range_of_position, into = c("start_pos", "end_pos"), sep = "\\.\\.")
 ```
 
 ## Convert the "read_count" column into a numeric value:
+
 ```{r}
 data_clean$Read_count <- as.numeric(data_clean$Read_count)
 
 ```
 
 ## Calculate the percentage of reads for each locus using "Total_read_number" column:
+
 ```{r}
 data_clean <- data_clean %>%
   mutate(Percent_reads = Read_count / Total_read_number * 100)
 ```
 
-## Create heatmap using "Chromosome" column as the vertical axis, the "start_pos" and "end_pos" columns for horizontal axis, and the "Percent_reads" column for the fill color. 
+## Create heatmap using "Chromosome" column as the vertical axis, the "start_pos" and "end_pos" columns for horizontal axis, and the "Percent_reads" column for the fill color.
+
 ```{r}
 ggplot(data_clean, aes(x = start_pos, y = Chromosome, fill = Percent_reads)) +
   geom_tile() +
@@ -76,7 +94,9 @@ ggplot(data_clean, aes(x = start_pos, y = Chromosome, fill = Percent_reads)) +
   labs(title = "Chromosome Heatmap", x = "Position Range", y = "Chromosome")
 
 ```
+
 ## Try again :(
+
 ```{r}
 ggplot(data = data_clean, aes(x = Chromosome, y = start_pos, fill = Percent_reads)) +
   geom_tile() +
@@ -85,7 +105,9 @@ ggplot(data = data_clean, aes(x = Chromosome, y = start_pos, fill = Percent_read
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
   coord_fixed(ratio = 1/15)
 ```
+
 ## And again!
+
 ```{r}
 ggplot(data_clean, aes(x = Chromosome, y = start_pos, fill = Percent_reads)) +
   geom_tile() +
@@ -93,7 +115,9 @@ ggplot(data_clean, aes(x = Chromosome, y = start_pos, fill = Percent_reads)) +
   labs(x = "Chromosome", y = "Position", fill = "% Reads") +
   theme(legend.position = "right", panel.grid = element_blank())
 ```
+
 ## "one more time" (data_clean only calculated % reads for the first row because the array wasn't the same scale in the total reads column)
+
 ```{r}
 data_clean <- data_clean %>%
               mutate(Total_read_number = 1456985)
@@ -102,6 +126,7 @@ data_clean <- data_clean %>%
 ```
 
 ## Trying 1st code again after realizing issue with df
+
 ```{r}
 ggplot(data_clean, aes(x = start_pos, y = Chromosome, fill = Percent_reads)) +
   geom_tile() +
